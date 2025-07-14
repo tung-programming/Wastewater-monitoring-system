@@ -25,7 +25,7 @@ This project is an IoT-based real-time wastewater quality monitoring system powe
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - Python (Flask, pandas, scikit-learn, joblib, threading)
 - Arduino (Sensor Interfacing via Serial)
@@ -34,7 +34,7 @@ This project is an IoT-based real-time wastewater quality monitoring system powe
 
 ---
 
-## 🧪 Sensors Used
+## Sensors Used
 
 - **pH Sensor** (analog)
 - **TDS Sensor** (analog)
@@ -43,7 +43,7 @@ This project is an IoT-based real-time wastewater quality monitoring system powe
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
