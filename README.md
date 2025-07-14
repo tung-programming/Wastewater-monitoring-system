@@ -122,9 +122,7 @@ The live dashboard displays:
 -The logic used for sensor readings in arduino will differ, so make sure to Calibrate the sensors
 
 ## Author
--Tushar P
--Email: tusharpradeep24@gmail.com
--Github:@tung-programming
+Tushar P | Email: tusharpradeep24@gmail.com | Github:@tung-programming
 
 ## License
 
