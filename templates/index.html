@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wastewater Monitoring Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Real-Time Wastewater Monitoring</h1>
+        </header>
+
+        <div class="status-bar" id="status-bar">
+            <span id="training-status-bar">Connecting to server...</span>
+            <!-- NEW: Added a span for the countdown timer -->
+            <span id="countdown-timer"></span>
+        </div>
+
+        <div class="dashboard">
+            <!-- Input Readings Card -->
+            <div class="card">
+                <h2>Sensor Inputs</h2>
+                <div class="card-content">
+                    <div class="reading"><span class="label">pH</span><span class="value" id="ph-value">...</span></div>
+                    <div class="reading"><span class="label">TDS (ppm)</span><span class="value" id="tds-value">...</span></div>
+                    <div class="reading"><span class="label">Turbidity (NTU)</span><span class="value" id="turbidity-value">...</span></div>
+                    <div class="reading"><span class="label">Temperature (°C)</span><span class="value" id="temp-value">...</span></div>
+                </div>
+            </div>
+
+            <!-- Predicted Values Card -->
+            <div class="card">
+                <h2>ML Predictions</h2>
+                <div class="card-content">
+                    <div class="prediction"><span class="label">BOD (mg/L)</span><span class="value" id="bod-value">...</span></div>
+                    <div class="prediction"><span class="label">COD (mg/L)</span><span class="value" id="cod-value">...</span></div>
+                    <div class="prediction"><span class="label">Dissolved Oxygen (mg/L)</span><span class="value" id="do-value">...</span></div>
+                </div>
+            </div>
+            
+            <!-- Water Quality Status Card -->
+            <div class="card" id="quality-card">
+                <h2>Water Quality Status</h2>
+                <div class="card-content">
+                    <div id="quality-status">Evaluating...</div>
+                    <div id="quality-reasons">Waiting for data...</div>
+                </div>
+            </div>
+
+            <!-- Feature Importance Card -->
+            <div class="card">
+                <h2>Prediction Logic (Feature Importance %)</h2>
+                <div class="card-content" id="importances-container">
+                    Waiting for data...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

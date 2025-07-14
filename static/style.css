@@ -1,0 +1,167 @@
+:root {
+    --sky-blue: #87CEEB;
+    --white: #ffffff;
+    --dark-text: #333;
+    --light-text: #555;
+    --border-color: #eef2f5;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --border-radius: 15px;
+    --good-color: #28a745;
+    --moderate-color: #ffc107;
+    --hazardous-color: #dc3545;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 40px 20px; /* Increased top/bottom padding */
+    background: linear-gradient(135deg, var(--sky-blue) 0%, var(--white) 70%);
+    color: var(--dark-text);
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.status-bar {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    font-weight: 600;
+    transition: background 0.5s ease;
+    /* NEW: Use flexbox for status and timer alignment */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#countdown-timer {
+    font-style: italic;
+    color: var(--light-text);
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider min width */
+    gap: 25px;
+}
+
+.card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color); /* Subtle border */
+    /* NEW: Use flexbox to make cards in a row equal height */
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.4rem; /* Adjusted size */
+    color: var(--sky-blue);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* NEW: This makes the content area grow to fill available space */
+.card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+.reading, .prediction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.label {
+    font-weight: 600;
+    color: var(--light-text);
+}
+
+.value {
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 5px 12px;
+    border-radius: 8px;
+    background: #f0f8ff;
+    transition: background-color 0.5s ease;
+}
+
+#quality-card {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+#quality-status {
+    font-size: 3rem;
+    font-weight: 700;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    transition: all 0.5s ease;
+}
+#quality-reasons {
+    margin-top: 15px;
+    color: var(--light-text);
+    font-size: 1rem;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.good { background-color: var(--good-color); color: white; }
+.moderate { background-color: var(--moderate-color); color: var(--dark-text); }
+.hazardous { background-color: var(--hazardous-color); color: white; }
+
+.value-update {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); background-color: var(--sky-blue); color: white;}
+    100% { transform: scale(1); }
+}
+
+/* NEW: Improved styling for the feature importance card */
+.importance-section {
+    margin-bottom: 15px;
+}
+.importance-section strong {
+    color: var(--dark-text);
+    display: block;
+    margin-bottom: 5px;
+}
+.importance-section .details {
+    font-size: 0.95rem;
+    color: var(--light-text);
+}
